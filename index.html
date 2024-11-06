@@ -23,7 +23,7 @@ title: Blog
 </script>
 
 {% for tag in site.tags %}
-  <a href="https://ihybrd.github.io/index.html?tag={{ tag }}">{{ tag }}<a/> 
+  <a href="https://ihybrd.github.io/index.html?tag={{ tag[0] }}">{{ tag[0] }}<a/> 
 {% endfor %}
 
 
