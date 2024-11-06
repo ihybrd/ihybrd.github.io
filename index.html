@@ -23,7 +23,7 @@ title: Blog
   if (name) {
     // document.getElementById("output").innerText = "abc";
     {% for tag in site.tags %}
-      if ("{{ tag }}" == name) {
+      if ("{{ tag[0] }}" == name) {
         document.getElementById("output").innerText = "abc";
       }
         
