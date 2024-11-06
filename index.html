@@ -7,6 +7,10 @@ title: Blog
   <a href="https://ihybrd.github.io/?current_category={{ tag[0] }}">{{ tag[0] }}<a/>
 {% endfor %}
 
+{% assign foo_value = request.params['current_category'] %}
+{{ foo_value }}
+
+    
 {% for tag in site.tags %}
   <h3>{{ tag[0] }}</h3>
   <ul>
