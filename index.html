@@ -16,23 +16,20 @@ title: Blog
   // Example: Getting the 'name' parameter
   const name = getParameterByName('tag');
   if (name) {
-    document.getElementById("output").innerText = `{% for tag in site.tags %} <a href="https://ihybrd.github.io/index.html?tag={{ tag }}">{{ tag }}<a/> {% endfor %}`;
+    document.getElementById("output").innerText = name;
   } else {
     document.getElementById("output").innerText = "Hello, guest!";
   }
 </script>
 
+{% for tag in site.tags %}
+  <a href="https://ihybrd.github.io/index.html?tag={{ tag }}">{{ tag }}<a/> 
+{% endfor %}
 
 
 
-{% assign foo_value = 123 %}
-{{ foo_value }}
+
     
-{% assign path = request.path %}
-1{{ path }}
-2{{ page.url }}
-3{{ page.path }}
-4{{ page.slug }}
     
 {% for tag in site.tags %}
   <h3>{{ tag[0] }}</h3>
