@@ -10,8 +10,8 @@ title: Blog
 {% assign foo_value = 123 %}
 {{ foo_value }}
     
-{% assign full_url = request.host | append: request.path %}
-{{ full_url }}
+{% assign path = request.path %}
+{{ path }}
     
 {% for tag in site.tags %}
   <h3>{{ tag[0] }}</h3>
