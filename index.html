@@ -25,8 +25,19 @@ title: Blog
     {% for tag in site.tags %}
       if ("{{ tag[0] }}" == name) {
         document.getElementById("output").innerText = name;
+
+        var li = document.createElement("li");
+        li.innerText = "https://ihybrd.github.io/index.html?tag={{ tag[0] }}";
+        a.innerText = "{{ tag[0] }}";
+        document.body.appendChild(li);
+        
         {% for post in tag[1] %}
-          <li><a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%-d %b %Y" }}</li>
+          var li = document.createElement("li");
+          var a2 = document.createElement("a");
+          a2.href = "{{ post.url }}";
+          a2.innerText = "{{ post.title }}"
+          li.innerText = a2;
+          //<li><a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%-d %b %Y" }}</li>
         {% endfor %}
       } else {
         var a = document.createElement("a");
