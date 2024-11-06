@@ -22,15 +22,14 @@ title: Blog
   const name = getParameterByName('tag');
   if (name) {
     {% for tag in site.tags %}
-      {% for post in tag[1] %}
-        if ("{{ tag[0] }}" == name) {
+      if ("{{ tag[0] }}" == name) {
+        {% for post in tag[1] %}
           var a2 = document.createElement("a");
           a2.href = "{{ post.url }}";
           a2.innerText = "{{ post.title }}"
           document.body.appendChild(a2);
-        }
-        
-      {% endfor %}
+        {% endfor %}
+      }
     {% endfor %}
 
     
