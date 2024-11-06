@@ -25,5 +25,5 @@ class Myclass {
 }
 ```
 
-[test page1](test_page1.md)
-[latex test](latex_test.md)
+- [test page1](test_page1.md)
+- [latex test](latex_test.md)
