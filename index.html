@@ -4,7 +4,7 @@ title: Blog
 ---
 
 {% for tag in site.tags %}
-  <a href="https://ihybrd.github.io/?current_category={{ tag[0] }}">{{ tag[0] }}<a/>
+  <a href="https://ihybrd.github.io/{{ tag[0] }}">{{ tag[0] }}<a/>
 {% endfor %}
 
 {% assign foo_value = 123 %}
@@ -13,6 +13,8 @@ title: Blog
 {% assign path = request.path %}
 {{ path }}
 {{ page.url }}
+{{ page.path }}
+{{ page.slug }}
     
 {% for tag in site.tags %}
   <h3>{{ tag[0] }}</h3>
