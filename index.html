@@ -3,6 +3,11 @@ layout: default
 title: Blog
 ---
 
+{% for tag in site.tags %}
+  <a href="https://ihybrd.github.io/index.html?tag={{ tag[0] }}">{{ tag[0] }}<a/> 
+{% endfor %}
+
+
 <p id="output"></p>
 
 
@@ -16,21 +21,14 @@ title: Blog
   // Example: Getting the 'name' parameter
   const name = getParameterByName('tag');
   if (name) {
-    document.getElementById("output").innerText = name;
+    document.getElementById("output").innerText = "{% assign my_tag = "+name+" %}";
   } else {
     document.getElementById("output").innerText = "Hello, guest!";
   }
 </script>
 
-{% for tag in site.tags %}
-  <a href="https://ihybrd.github.io/index.html?tag={{ tag[0] }}">{{ tag[0] }}<a/> 
-{% endfor %}
-
-
-
-
     
-    
+{{ my_tag }}
 {% for tag in site.tags %}
   <h3>{{ tag[0] }}</h3>
   <ul>
