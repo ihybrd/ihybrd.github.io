@@ -32,11 +32,12 @@ title: Blog
         document.body.appendChild(li);
         
         {% for post in tag[1] %}
-          var li = document.createElement("li");
+          //var li = document.createElement("li");
           var a2 = document.createElement("a");
           a2.href = "{{ post.url }}";
           a2.innerText = "{{ post.title }}"
-          li.innerText = a2;
+          document.body.appendChild(a2);
+          //li.innerText = a2;
           //<li><a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%-d %b %Y" }}</li>
         {% endfor %}
       } else {
