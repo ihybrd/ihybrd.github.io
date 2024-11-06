@@ -21,25 +21,7 @@ title: Blog
   // Example: Getting the 'name' parameter
   const name = getParameterByName('tag');
   if (name) {
-    // document.getElementById("output").innerText = "abc";
-    {% for tag in site.tags %}
-      if ("{{ tag[0] }}" == name) {
-        document.getElementById("output").innerText = name;
 
-        var li = document.createElement("li");
-        li.innerText = "https://ihybrd.github.io/index.html?tag={{ tag[0] }}";
-        a.innerText = "{{ tag[0] }}";
-        document.body.appendChild(li);
-        
-        
-      } else {
-        var a = document.createElement("a");
-        a.href = "https://ihybrd.github.io/index.html?tag={{ tag[0] }}";
-        a.innerText = "{{ tag[0] }}";
-        document.body.appendChild(a);
-      }
-    {% endfor %}
-    
     {% for post in tag[1] %}
       if ("{{ tag[0] }}" == name) {
         var a2 = document.createElement("a");
