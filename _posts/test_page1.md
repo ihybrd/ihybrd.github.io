@@ -1,3 +1,6 @@
+---
+layout: post
+---
 this is a test page, we are adding some testing code here
 
 ```python
