@@ -18,7 +18,7 @@ title: Blog
   if (name) {
     document.getElementById("output").innerText = `
     {% for tag in site.tags %}
-      <a href="https://ihybrd.github.io/index.html?tag={{ `+name+` }}">{{ `+name+` }}<a/>
+      <a href="https://ihybrd.github.io/index.html?tag={{ tag }}">{{ tag }}<a/>
     {% endfor %}
     `;
   } else {
