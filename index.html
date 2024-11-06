@@ -23,10 +23,14 @@ title: Blog
   if (name) {
     // document.getElementById("output").innerText = "abc";
     {% for tag in site.tags %}
-      var a = document.createElement("a");
-      a.href = "https://ihybrd.github.io/index.html?tag={{ tag[0] }}";
-      a.innerText = "{{ tag[0] }}";
-      document.body.appendChild(a);
+      if ("{{ tag }}" == name) {
+        document.getElementById("output").innerText = "abc";
+      }
+        
+      //var a = document.createElement("a");
+      //a.href = "https://ihybrd.github.io/index.html?tag={{ tag[0] }}";
+      //a.innerText = "{{ tag[0] }}";
+      //document.body.appendChild(a);
     {% endfor %}
 
 
