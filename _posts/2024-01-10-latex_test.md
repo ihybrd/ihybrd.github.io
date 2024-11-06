@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "MathJax Example"
+tag: latex
 ---
 
 <!-- Include the MathJax script for LaTeX rendering -->
