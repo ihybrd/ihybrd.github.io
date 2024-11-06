@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "MathJax Example"
-tag: latex
+tags: [latex,code]
 ---
 
 <!-- Include the MathJax script for LaTeX rendering -->
@@ -27,3 +27,8 @@ $$
 $$
 
 You can include as many equations as you need. MathJax will render these expressions when the page loads.
+
+```python
+def function():
+  print ("some info")
+```
