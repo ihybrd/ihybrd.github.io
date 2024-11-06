@@ -14,7 +14,7 @@ title: Blog
   }
 
   // Example: Getting the 'name' parameter
-  const name = getParameterByName('name');
+  const name = getParameterByName('tag');
   if (name) {
     document.getElementById("output").innerText = "Hello, " + name;
   } else {
@@ -24,7 +24,7 @@ title: Blog
 
 
 {% for tag in site.tags %}
-  <a href="https://ihybrd.github.io/index.html#{{ tag[0] }}">{{ tag[0] }}<a/>
+  <a href="https://ihybrd.github.io/index.html?tag={{ tag[0] }}">{{ tag[0] }}<a/>
 {% endfor %}
 
 {% assign foo_value = 123 %}
