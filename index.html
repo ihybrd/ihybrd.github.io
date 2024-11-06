@@ -12,6 +12,7 @@ title: Blog
     
 {% assign path = request.path %}
 {{ path }}
+{{ page.url }}
     
 {% for tag in site.tags %}
   <h3>{{ tag[0] }}</h3>
