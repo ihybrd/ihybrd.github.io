@@ -25,11 +25,9 @@ title: Blog
     {% for tag in site.tags %}
       if ("{{ tag[0] }}" == name) {
         document.getElementById("output").innerText = name;
-        <ul>
-          {% for post in tag[1] %}
-            <li><a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%-d %b %Y" }}</li>
-          {% endfor %}
-        </ul>
+        {% for post in tag[1] %}
+          <li><a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%-d %b %Y" }}</li>
+        {% endfor %}
       } else {
         var a = document.createElement("a");
         a.href = "https://ihybrd.github.io/index.html?tag={{ tag[0] }}";
