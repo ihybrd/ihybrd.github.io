@@ -3,6 +3,23 @@ layout: default
 title: Blog
 ---
 
+<script>
+  // Function to get URL parameter
+  function getParameterByName(name) {
+    const url = new URL(window.location.href);
+    return url.searchParams.get(name);
+  }
+
+  // Example: Getting the 'name' parameter
+  const name = getParameterByName('name');
+  if (name) {
+    document.getElementById("output").innerText = "Hello, " + name;
+  } else {
+    document.getElementById("output").innerText = "Hello, guest!";
+  }
+</script>
+
+
 {% for tag in site.tags %}
   <a href="https://ihybrd.github.io/index.html#{{ tag[0] }}">{{ tag[0] }}<a/>
 {% endfor %}
