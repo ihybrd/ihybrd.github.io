@@ -40,7 +40,7 @@ title: Blog
   
   // generating nav bar
   {% for tag in site.tags %}
-    var splitter = document.createTextNode(" - ")
+    var splitter = document.createTextNode(" | ")
     nav_bar.appendChild(splitter);
   
     if ("{{ tag[0] }}" == tag_value) {
