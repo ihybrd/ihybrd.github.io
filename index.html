@@ -24,13 +24,13 @@ title: Blog
   if (name) {
     {% for tag in site.tags %}
       if ("{{ tag[0] }}" == name) {
+        var normalTextNode = document.createTextNode("{{ tag[0] }}")
+        parent.appendChild(normalTextNode);
+      } else {
         var a = document.createElement("a");
         a.href = "https://ihybrd.github.io/index.html?tag={{ tag[0] }}";
         a.innerText = "{{ tag[0] }}";
         parent.appendChild(a);
-      } else {
-        var normalTextNode = document.createTextNode("{{ tag[0] }}")
-        parent.appendChild(normalTextNode);
       }
     {% endfor %}
 
