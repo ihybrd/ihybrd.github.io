@@ -3,7 +3,7 @@ layout: default
 ---
 
 
-<div style="width: 300px;" id="space_bar">
+<div style="width: 300px;height: 30px;" id="space_bar">
 </div>
 
 <div id="nav_bar"></div>
@@ -22,7 +22,7 @@ layout: default
   var nav_bar = document.getElementById('nav_bar');
   var content_area = document.getElementById('content_area');
   var wrapper = document.getElementsByClassName("wrapper")[0];
-  //var space = document.getElementById("space_bar");
+  var space = document.getElementById("space_bar");
   var site_title = document.getElementsByClassName("site-title")[0];
 
   // remote site-nav 
@@ -61,7 +61,7 @@ layout: default
     }
   {% endfor %}
 
-  // wrapper.appendChild(space);
+  wrapper.appendChild(space);
   wrapper.appendChild(nav_bar);
 </script>
 
