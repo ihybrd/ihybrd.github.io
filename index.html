@@ -25,10 +25,12 @@ title: Blog
     {% for tag in site.tags %}
       if ("{{ tag[0] }}" == name) {
         {% for post in tag[1] %}
+          var li = document.createElement('li');
           var a2 = document.createElement("a");
           a2.href = "{{ post.url }}";
           a2.innerText = "{{ post.title }}"
-          parent.appendChild(a2);
+          li.appendChild(a2);
+          parent.appendChild(li);
         {% endfor %}
       }
     {% endfor %}
