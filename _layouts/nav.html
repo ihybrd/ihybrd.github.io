@@ -22,13 +22,17 @@ layout: default
   var nav_bar = document.getElementById('nav_bar');
   var content_area = document.getElementById('content_area');
   var wrapper = document.getElementsByClassName("wrapper")[0];
-  var space = document.getElementById("space_bar");
+  //var space = document.getElementById("space_bar");
+  var site_title = document.getElementsByClassName("site-title")[0];
 
   // remote site-nav 
   const element = document.getElementsByClassName('site-nav')[0];
   if (element) {
     element.remove();
   }
+
+
+  nav_bar.appendChild(site_title);
   
   // all button 
   /*if (tag_value) {
