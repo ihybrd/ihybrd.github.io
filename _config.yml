@@ -21,9 +21,11 @@ description: >
 remote_theme: jekyll/minima
 
 plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
+  - jekyll-remote-theme # add this line to the plugins list if you already have one
 
+#remote_theme: pages-themes/minimal@v0.2.0
+#plugins:
+#- jekyll-remote-theme # add this line to the plugins list if you already have one
 # Theme-specific settings
 
 # If you want to link only specific pages in your header, use this and add the path to the pages
