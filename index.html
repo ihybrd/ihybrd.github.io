@@ -68,17 +68,15 @@ title: Blog
       }
     {% endfor %}
   } else { // else display all
-    {% for tag in site.tags %}
-      {% for post in tag[1] %}
-        var li = document.createElement('li');
-        var a2 = document.createElement("a");
-        a2.href = "{{ post.url }}";
-        a2.innerText = "{{ post.title }}";
-        var normalTextNode = document.createTextNode(' - {{ post.date | date: "%-d %b %Y" }}');
-        li.appendChild(a2);
-        li.appendChild(normalTextNode);
-        content_area.appendChild(li);
-      {% endfor %}
+    {% for post in site.posts %}
+      var li = document.createElement('li');
+      var a2 = document.createElement("a");
+      a2.href = "{{ post.url }}";
+      a2.innerText = "{{ post.title }}";
+      var normalTextNode = document.createTextNode(' - {{ post.date | date: "%-d %b %Y" }}');
+      li.appendChild(a2);
+      li.appendChild(normalTextNode);
+      content_area.appendChild(li);
     {% endfor %}
   }
 </script>
