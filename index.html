@@ -28,9 +28,10 @@ title: Blog
           var li = document.createElement('li');
           var a2 = document.createElement("a");
           a2.href = "{{ post.url }}";
-          a2.innerText = "{{ post.title }}"
+          a2.innerText = "{{ post.title }}";
+          var normalTextNode = document.createTextNode(' - {{ post.date | date: "%-d %b %Y" }}');
           li.appendChild(a2);
-          li.textContent= ' - {{ post.date | date: "%-d %b %Y" }}';
+          li.appendChild(normalTextNode);
           parent.appendChild(li);
         {% endfor %}
       }
