@@ -20,6 +20,7 @@ title: Blog
 
   // Example: Getting the 'name' parameter
   const name = getParameterByName('tag');
+  var parent = document.getElementById('output');
   if (name) {
     {% for tag in site.tags %}
       if ("{{ tag[0] }}" == name) {
@@ -27,7 +28,7 @@ title: Blog
           var a2 = document.createElement("a");
           a2.href = "{{ post.url }}";
           a2.innerText = "{{ post.title }}"
-          document.body.appendChild(a2);
+          parent.appendChild(a2);
         {% endfor %}
       }
     {% endfor %}
