@@ -46,11 +46,10 @@ title: Blog
       all.href = "https://ihybrd.github.io/index.html";
       all.innerText = "all";
       nav_bar.appendChild(all);
-    } else {
-      var all = document.createTextNode("all")
-      nav_bar.appendChild(all);
-    }
-    nav_bar.appendChild(all)
+  } else {
+    var all = document.createTextNode("all")
+    nav_bar.appendChild(all);
+  }
 
   // generating the content 
   if (tag_value) {  // if has tag value, only display post with tags
