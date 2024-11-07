@@ -42,7 +42,11 @@ layout: default
       a.innerText = "{{ tag[0] }}";
       nav_bar.appendChild(a);
     }
-  {% endfor %}  
+  {% endfor %}
+  
+  var br = document.createElement('br');
+  nav_bar.appendChild(br)
+  nav_bar.appendChild(br)
   
 </script>
 
