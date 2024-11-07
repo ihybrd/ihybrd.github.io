@@ -2,10 +2,6 @@
 layout: default
 ---
 
-
-<div style="width: 300px;height: 30px;" id="space_bar">
-</div>
-
 <div id="nav_bar"></div>
 
 
@@ -22,7 +18,6 @@ layout: default
   var nav_bar = document.getElementById('nav_bar');
   var content_area = document.getElementById('content_area');
   var wrapper = document.getElementsByClassName("wrapper")[0];
-  var space = document.getElementById("space_bar");
   var site_title = document.getElementsByClassName("site-title")[0];
 
   // remote site-nav 
@@ -31,19 +26,7 @@ layout: default
     element.remove();
   }
 
-
   nav_bar.appendChild(site_title);
-  
-  // all button 
-  /*if (tag_value) {
-      var all = document.createElement("a");
-      all.href = "https://ihybrd.github.io/index.html";
-      all.innerText = "home";
-      wrapper.appendChild(all);
-  } else {
-    var all = document.createTextNode("home")
-    wrapper.appendChild(all);
-  }*/
   
   // generating nav bar
   {% for tag in site.tags %}
