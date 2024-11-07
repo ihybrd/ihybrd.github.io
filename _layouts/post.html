@@ -5,7 +5,9 @@ layout: nav
 <font size = 10>
 {{ page.title }}
 </font>
-<!-- <p>{{ page.date | date_to_string }} - {{ page.author }}</p> -->
+{{ page.date | date_to_string }}
+<!-- {{ page.author }}</p> -->
+
 <script>
   var page_content = document.getElementsByClassName("page-content")[0];
   page_content.style = "padding: 0px;";
