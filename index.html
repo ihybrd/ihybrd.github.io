@@ -30,7 +30,7 @@ title: Blog
           a2.href = "{{ post.url }}";
           a2.innerText = "{{ post.title }}"
           li.appendChild(a2);
-          li.appendChlid('- {{ post.date | date: "%-d %b %Y" }}');
+          li.innerText= '- {{ post.date | date: "%-d %b %Y" }}';
           parent.appendChild(li);
         {% endfor %}
       }
