@@ -9,7 +9,9 @@ title: Blog
 {% endfor %}
 -->
 
-<p id="output"></p>
+<div>
+  <div id="nav_bar"></div>
+  <div id="content_area"></div>
 
 <script>
   // Function to get URL parameter
@@ -18,24 +20,27 @@ title: Blog
     return url.searchParams.get(name);
   }
 
-  // Example: Getting the 'name' parameter
-  const name = getParameterByName('tag');
-  var parent = document.getElementById('output');
-  if (name) {
+  // generating navigation bar
+  // get value of parameter tag, tags are used as nav/category here
+  const tag_value = getParameterByName('tag');
+  var nav_bar = document.getElementById('nav_bar');
+  var content_area = document.getElementById('content_area');
+  if (tag_value) {
     {% for tag in site.tags %}
-      if ("{{ tag[0] }}" == name) {
+      if ("{{ tag[0] }}" == tag_value) {
         var normalTextNode = document.createTextNode("{{ tag[0] }}")
-        parent.appendChild(normalTextNode);
+        nav_bar.appendChild(normalTextNode);
       } else {
         var a = document.createElement("a");
         a.href = "https://ihybrd.github.io/index.html?tag={{ tag[0] }}";
         a.innerText = "{{ tag[0] }}";
-        parent.appendChild(a);
+        nav_bar.appendChild(a);
       }
     {% endfor %}
 
+    
     {% for tag in site.tags %}
-      if ("{{ tag[0] }}" == name) {
+      if ("{{ tag[0] }}" == tag_value) {
         {% for post in tag[1] %}
           var li = document.createElement('li');
           var a2 = document.createElement("a");
@@ -44,7 +49,7 @@ title: Blog
           var normalTextNode = document.createTextNode(' - {{ post.date | date: "%-d %b %Y" }}');
           li.appendChild(a2);
           li.appendChild(normalTextNode);
-          parent.appendChild(li);
+          content_area.appendChild(li);
         {% endfor %}
       }
     {% endfor %}
@@ -55,6 +60,7 @@ title: Blog
   }
 </script>
 
+<!--
 {% for tag in site.tags %}
   <h3>{{ tag[0] }}</h3>
   <ul>
@@ -71,3 +77,4 @@ title: Blog
     </li>
   {% endfor %}
 </ul>
+-->
