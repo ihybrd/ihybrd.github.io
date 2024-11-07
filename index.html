@@ -26,20 +26,22 @@ title: Blog
   const tag_value = getParameterByName('tag');
   var nav_bar = document.getElementById('nav_bar');
   var content_area = document.getElementById('content_area');
-  if (tag_value) {
-    {% for tag in site.tags %}
-      if ("{{ tag[0] }}" == tag_value) {
-        var normalTextNode = document.createTextNode("{{ tag[0] }}")
-        nav_bar.appendChild(normalTextNode);
-      } else {
-        var a = document.createElement("a");
-        a.href = "https://ihybrd.github.io/index.html?tag={{ tag[0] }}";
-        a.innerText = "{{ tag[0] }}";
-        nav_bar.appendChild(a);
-      }
-    {% endfor %}
 
-    
+  // generating nav bar
+  {% for tag in site.tags %}
+    if ("{{ tag[0] }}" == tag_value) {
+      var normalTextNode = document.createTextNode("{{ tag[0] }}")
+      nav_bar.appendChild(normalTextNode);
+    } else {
+      var a = document.createElement("a");
+      a.href = "https://ihybrd.github.io/index.html?tag={{ tag[0] }}";
+      a.innerText = "{{ tag[0] }}";
+      nav_bar.appendChild(a);
+    }
+  {% endfor %}
+
+  // generating the content 
+  if (tag_value) {  // if has tag value, only display post with tags
     {% for tag in site.tags %}
       if ("{{ tag[0] }}" == tag_value) {
         {% for post in tag[1] %}
@@ -54,10 +56,19 @@ title: Blog
         {% endfor %}
       }
     {% endfor %}
-
-    
-  } else {
-    document.getElementById("output").innerText = "Hello, guest!";
+  } else { // else display all
+    {% for tag in site.tags %}
+      {% for post in tag[1] %}
+        var li = document.createElement('li');
+        var a2 = document.createElement("a");
+        a2.href = "{{ post.url }}";
+        a2.innerText = "{{ post.title }}";
+        var normalTextNode = document.createTextNode(' - {{ post.date | date: "%-d %b %Y" }}');
+        li.appendChild(a2);
+        li.appendChild(normalTextNode);
+        content_area.appendChild(li);
+      {% endfor %}
+    {% endfor %}
   }
 </script>
 
