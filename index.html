@@ -38,10 +38,10 @@ title: Blog
       a.innerText = "{{ tag[0] }}";
       nav_bar.appendChild(a);
     }
+  {% endfor %}
 
-    // all button 
-    
-    if (tag_value) {
+  // all button 
+  if (tag_value) {
       var all = document.createElement("a");
       all.href = "https://ihybrd.github.io/index.html";
       all.innerText = "all";
@@ -51,7 +51,6 @@ title: Blog
       nav_bar.appendChild(all);
     }
     nav_bar.appendChild(all)
-  {% endfor %}
 
   // generating the content 
   if (tag_value) {  // if has tag value, only display post with tags
