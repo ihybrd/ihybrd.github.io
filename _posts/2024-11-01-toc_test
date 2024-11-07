@@ -1,0 +1,14 @@
+---
+layout: post
+title: toc test
+---
+
+* TOC
+{:toc}
+
+
+# h1
+## h2
+# h1a
+## h2a
+# h1b
