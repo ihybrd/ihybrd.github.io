@@ -16,42 +16,43 @@ layout: default
   const tag_value = getParameterByName('tag');
   var nav_bar = document.getElementById('nav_bar');
   var content_area = document.getElementById('content_area');
+  var wrapper = document.getElementsByClassName("wrapper");
+
   
   // all button 
   if (tag_value) {
       var all = document.createElement("a");
       all.href = "https://ihybrd.github.io/index.html";
       all.innerText = "home";
-      nav_bar.appendChild(all);
+      wrapper.appendChild(all);
   } else {
     var all = document.createTextNode("home")
-    nav_bar.appendChild(all);
+    wrapper.appendChild(all);
   }
   
   // generating nav bar
   {% for tag in site.tags %}
     var splitter = document.createTextNode(" | ")
-    nav_bar.appendChild(splitter);
+    wrapper.appendChild(splitter);
   
     if ("{{ tag[0] }}" == tag_value) {
       var normalTextNode = document.createTextNode("{{ tag[0] }}")
-      nav_bar.appendChild(normalTextNode);
+      wrapper.appendChild(normalTextNode);
     } else {
       var a = document.createElement("a");
       a.href = "https://ihybrd.github.io/index.html?tag={{ tag[0] }}";
       a.innerText = "{{ tag[0] }}";
-      nav_bar.appendChild(a);
+      wrapper.appendChild(a);
     }
   {% endfor %}
   
   var br = document.createElement('br');
   var br2 = document.createElement('br');
-  nav_bar.appendChild(br)
-  nav_bar.appendChild(br2)
+  wrapper.appendChild(br)
+  wrapper.appendChild(br2)
 
 
-  var wrapper = document.getElementsByClassName("wrapper");
-  wrapper.appendChild(nav_bar);
+  
   
 </script>
 
