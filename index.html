@@ -22,9 +22,6 @@ title: Blog
   // get value of parameter tag, tags are used as nav/category here
   var content_area = document.getElementById('content_area');
 
-  var br = document.createElement('br');
-  content_area.appendChild(br)
-
   // generating the content 
   if (tag_value) {  // if has tag value, only display post with tags
     {% for tag in site.tags %}
