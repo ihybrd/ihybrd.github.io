@@ -24,6 +24,11 @@ layout: default
   var wrapper = document.getElementsByClassName("wrapper")[0];
   var space = document.getElementById("space_bar");
 
+  // remote site-nav 
+  const element = document.getElementByClassName('site-nav');
+  if (element) {
+    element.remove();
+  }
   
   // all button 
   /*if (tag_value) {
