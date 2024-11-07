@@ -23,7 +23,6 @@ layout: default
   var content_area = document.getElementById('content_area');
   var wrapper = document.getElementsByClassName("wrapper")[0];
   var space = document.getElementById("space_bar");
-  var site_title = document.getElementsByClassName("site-title")[0];
 
   // remote site-nav 
   const element = document.getElementsByClassName('site-nav')[0];
@@ -58,10 +57,7 @@ layout: default
     }
   {% endfor %}
 
-  var div = document.createElement("div");
-  div.appendChild(site_title);
-  wrapper.appendChild(div);
-  wrapper.appendChild(space);
+  // wrapper.appendChild(space);
   wrapper.appendChild(nav_bar);
 </script>
 
