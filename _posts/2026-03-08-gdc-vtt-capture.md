@@ -4,7 +4,7 @@ title: "gdc-vtt-capture"
 tags: [github,tools]
 ---
 
-repo: https://github.com/ihybrd/gdc-vtt-capture
+repo: [https://github.com/ihybrd/gdc-vtt-capture](https://github.com/ihybrd/gdc-vtt-capture)
 
 # What is gdc-vtt-capture
 
