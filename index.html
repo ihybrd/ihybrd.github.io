@@ -1,0 +1,51 @@
+---
+layout: default
+title: Blog
+---
+
+<p id="output"></p>
+
+
+<script>
+  // Function to get URL parameter
+  function getParameterByName(name) {
+    const url = new URL(window.location.href);
+    return url.searchParams.get(name);
+  }
+
+  // Example: Getting the 'name' parameter
+  const name = getParameterByName('tag');
+  if (name) {
+    document.getElementById("output").innerText = name;
+  } else {
+    document.getElementById("output").innerText = "Hello, guest!";
+  }
+</script>
+
+{% for tag in site.tags %}
+  <a href="https://ihybrd.github.io/index.html?tag={{ tag }}">{{ tag }}<a/> 
+{% endfor %}
+
+
+
+
+    
+    
+{% for tag in site.tags %}
+  <h3>{{ tag[0] }}</h3>
+  <ul>
+    {% for post in tag[1] %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%-d %b %Y" }}</li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+
+
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%-d %b %Y" }}
+    </li>
+  {% endfor %}
+</ul>
