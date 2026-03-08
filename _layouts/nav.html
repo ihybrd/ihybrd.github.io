@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 <div id="nav_bar"></div>
 
 
@@ -16,17 +17,16 @@ layout: default
   const tag_value = getParameterByName('tag');
   var nav_bar = document.getElementById('nav_bar');
   var content_area = document.getElementById('content_area');
-  
-  // all button 
-  if (tag_value) {
-      var all = document.createElement("a");
-      all.href = "https://ihybrd.github.io/index.html";
-      all.innerText = "all";
-      nav_bar.appendChild(all);
-  } else {
-    var all = document.createTextNode("all")
-    nav_bar.appendChild(all);
+  var wrapper = document.getElementsByClassName("wrapper")[0];
+  var site_title = document.getElementsByClassName("site-title")[0];
+
+  // remote site-nav 
+  const element = document.getElementsByClassName('site-nav')[0];
+  if (element) {
+    element.remove();
   }
+
+  nav_bar.appendChild(site_title);
   
   // generating nav bar
   {% for tag in site.tags %}
@@ -42,7 +42,21 @@ layout: default
       a.innerText = "{{ tag[0] }}";
       nav_bar.appendChild(a);
     }
-  {% endfor %}  
+  {% endfor %}
+
+  
+  wrapper.appendChild(nav_bar);
+</script>
+
+<!-- Include the MathJax script for LaTeX rendering -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+        "HTML-CSS": { scale: 90 }
+    });
 </script>
 
       
