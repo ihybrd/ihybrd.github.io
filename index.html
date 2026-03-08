@@ -1,10 +1,15 @@
 ---
-layout: default
+layout: nav
 title: Blog
 ---
 
-<p id="output"></p>
+<!--
+{% for tag in site.tags %}
+  <a href="https://ihybrd.github.io/index.html?tag={{ tag[0] }}">{{ tag[0] }}<a/> 
+{% endfor %}
+-->
 
+<div id="content_area"></div>
 
 <script>
   // Function to get URL parameter
@@ -13,24 +18,41 @@ title: Blog
     return url.searchParams.get(name);
   }
 
-  // Example: Getting the 'name' parameter
-  const name = getParameterByName('tag');
-  if (name) {
-    document.getElementById("output").innerText = name;
-  } else {
-    document.getElementById("output").innerText = "Hello, guest!";
+  // generating navigation bar
+  // get value of parameter tag, tags are used as nav/category here
+  var content_area = document.getElementById('content_area');
+
+  // generating the content 
+  if (tag_value) {  // if has tag value, only display post with tags
+    {% for tag in site.tags %}
+      if ("{{ tag[0] }}" == tag_value) {
+        {% for post in tag[1] %}
+          var li = document.createElement('li');
+          var a2 = document.createElement("a");
+          a2.href = "{{ post.url }}";
+          a2.innerText = "{{ post.title }}";
+          var normalTextNode = document.createTextNode(' - {{ post.date | date: "%-d %b %Y" }}');
+          li.appendChild(a2);
+          li.appendChild(normalTextNode);
+          content_area.appendChild(li);
+        {% endfor %}
+      }
+    {% endfor %}
+  } else { // else display all
+    {% for post in site.posts %}
+      var li = document.createElement('li');
+      var a2 = document.createElement("a");
+      a2.href = "{{ post.url }}";
+      a2.innerText = "{{ post.title }}";
+      var normalTextNode = document.createTextNode(' - {{ post.date | date: "%-d %b %Y" }}');
+      li.appendChild(a2);
+      li.appendChild(normalTextNode);
+      content_area.appendChild(li);
+    {% endfor %}
   }
 </script>
 
-{% for tag in site.tags %}
-  <a href="https://ihybrd.github.io/index.html?tag={{ tag }}">{{ tag }}<a/> 
-{% endfor %}
-
-
-
-
-    
-    
+<!--
 {% for tag in site.tags %}
   <h3>{{ tag[0] }}</h3>
   <ul>
@@ -40,8 +62,6 @@ title: Blog
   </ul>
 {% endfor %}
 
-
-
 <ul>
   {% for post in site.posts %}
     <li>
@@ -49,3 +69,4 @@ title: Blog
     </li>
   {% endfor %}
 </ul>
+-->
